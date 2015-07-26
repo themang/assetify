@@ -1,13 +1,36 @@
 
 # assetify
 
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
+[ ![Codeship Status for themang/assetify](https://img.shields.io/codeship/dd1bd530-1568-0133-795a-662e297fd73a/master.svg)](https://codeship.com/projects/93186) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
 Copies &quot;required&quot; assets to an &#x60;output&#x60; dir.
 
 ## Installation
 
     $ npm install @themang/assetify
+
+
+## Example
+
+```js
+var avatar = require('./themang.png')
+var style {
+  backgroundUrl: avatar
+}
+```
+
+Bundle using the assetify plugin like so:
+
+```
+browserify -p [ @themang/assetify ] index.js > build.js
+```
+
+`themang.png` will be copied to the `assets` dir by default and the url returned by requiring it will be `/assets/[hash].png`.
+
+## Options
+
+* **output** - output dir (defaults to `./assets`)
+* **base** - base url (defaults to `/assets/`)
 
 ## License
 
